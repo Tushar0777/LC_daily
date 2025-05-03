@@ -34,3 +34,7 @@ public:
     }
 };
 
+// follow up -> LEETCODE 2354(HARD)   https://leetcode.com/problems/number-of-excellent-pairs/
+//           ->   LEETCODE 801
+//            ->   LEETCODE 926(must try )
+
