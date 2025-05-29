@@ -1,5 +1,34 @@
 class Solution {
 public:
+    int bfs(unordered_map<int,vector<int>>&adj,int k,int node,int n){
+        queue<pair<int,int>>q;
+        q.push({node,0});
+        vector<bool>visited(n,false);
+        visited[node]=true;
+
+        int count=0;
+
+        while(q.empty()==false){
+            // auto[curr,dist]=q.front();
+            int curr =q.front().first;
+            int dist=q.front().second;
+            q.pop();
+
+            if(dist>k){
+                continue;
+            }
+            count++;
+
+            for(auto ngr:adj[curr]){
+                if(visited[ngr]==false){
+                    visited[ngr]=true;
+                    q.push({ngr,dist+1});
+                }
+            }
+
+        }
+        return count;
+    }
 
     int dfs(unordered_map<int,vector<int>>&adj,int k,int node,int parent){
         if(k<0){
